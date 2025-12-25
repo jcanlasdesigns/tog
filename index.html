@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch of Gold - Self Care Lounge by Mhacdan Salon & Spa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --cream: #fafafa;
+            --dark: #252321;
+            --gold: #f8a302;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* Dark Mode Variables */
+        .dark-mode {
+            --cream: #1a1a1a;
+            --dark: #f0f0f0;
+            --gold: #f8a302;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        p, li, span, a:not(.btn), button:not(.btn):not(.fab-theme-toggle), input, textarea, select, label, .contact-detail div h4, .author-info p, .footer-links ul li a, .copyright, .footer-brand p {
+            color: var(--dark);
+        }
+        
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode span,
+        .dark-mode a:not(.btn),
+        .dark-mode .contact-detail div h4,
+        .dark-mode .author-info p,
+        .dark-mode .footer-links ul li a,
+        .dark-mode .copyright,
+        .dark-mode .footer-brand p,
+        .dark-mode .service-content p,
+        .dark-mode .location-content p,
+        .dark-mode .testimonial-content {
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .service-content h3,
+        .dark-mode .location-content h3,
+        .dark-mode .contact-info h3,
+        .dark-mode .contact-form h3,
+        .dark-mode .footer-links h4,
+        .dark-mode .footer-hours h4,
+        .dark-mode .author-info h4,
+        .dark-mode .section-title h2,
+        .dark-mode .contact-detail div p {
+            color: #f0f0f0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(250, 250, 250, 0.97);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .dark-mode header {
+            background-color: rgba(26, 26, 26, 0.97);
+        }
+        
+        header.scrolled {
+            padding: 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        
+        header.scrolled .header-container {
+            padding: 5px 0;
+        }
+        
+        .logo-img {
+            height: 70px;
+            width: auto;
+            transition: var(--transition);
+        }
+        
+        header.scrolled .logo-img {
+            height: 60px;
+        }
+        
+        /* Logo for light theme */
+        .logo-light {
+            display: block;
+        }
+        
+        .dark-mode .logo-light {
+            display: none;
+        }
+        
+        /* Logo for dark theme */
+        .logo-dark {
+            display: none;
+        }
+        
+        .dark-mode .logo-dark {
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Floating Action Button for Theme Toggle */
+        .fab-theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            border: none;
+            box-shadow: 0 5px 20px rgba(248, 163, 2, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: var(--transition);
+        }
+        
+        .fab-theme-toggle:hover {
+            transform: scale(1.1) rotate(30deg);
+            box-shadow: 0 8px 25px rgba(248, 163, 2, 0.5);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+            background: none;
+            border: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('hero-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 70%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 0.5s;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: white;
+            line-height: 1.1;
+        }
+        
+        .hero h3 {
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: white;
+            padding: 16px 38px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--cream);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 20px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.5s ease;
+        }
+        
+        .section-title:hover h2::after {
+            width: 120px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+        }
+        
+        .dark-mode .service-card {
+            background-color: #2a2a2a;
+        }
+        
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-img-container {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .service-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img {
+            transform: scale(1.12);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+        
+        .service-content p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .dark-mode .service-content p {
+            color: #ccc;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .dark-mode .gallery {
+            background-color: #222;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 320px;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.15);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--cream);
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 420px;
+            padding: 40px 0 70px;
+        }
+        
+        .swiper-slide {
+            background-color: white;
+            border-radius: 15px;
+            padding: 45px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: var(--transition);
+            opacity: 0.7;
+            transform: scale(0.9);
+        }
+        
+        .swiper-slide-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .dark-mode .swiper-slide {
+            background-color: #2a2a2a;
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.9;
+            position: relative;
+            padding-left: 25px;
+            color: var(--dark);
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--gold);
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--gold);
+        }
+        
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .dark-mode .author-info p {
+            color: #aaa;
+        }
+        
+        /* Locations Section */
+        .locations {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .dark-mode .locations {
+            background-color: #222;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 45px;
+        }
+        
+        .location-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .dark-mode .location-card {
+            background-color: #2a2a2a;
+        }
+        
+        .location-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .location-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .location-map {
+            height: 280px;
+            width: 100%;
+        }
+        
+        .location-content {
+            padding: 35px;
+        }
+        
+        .location-content h3 {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 18px;
+        }
+        
+        .location-content h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+            transition: width 0.5s ease;
+        }
+        
+        .location-card:hover .location-content h3::after {
+            width: 100px;
+        }
+        
+        .location-content p {
+            margin-bottom: 18px;
+            font-size: 16px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--dark);
+        }
+        
+        .location-content p i {
+            margin-right: 12px;
+            color: var(--gold);
+            margin-top: 3px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--cream);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-detail:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-detail i {
+            width: 55px;
+            height: 55px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--gold);
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        
+        .dark-mode .contact-detail i {
+            background-color: #333;
+        }
+        
+        .contact-detail div h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-detail div p {
+            color: var(--dark);
+        }
+        
+        .dark-mode .contact-detail div p {
+            color: #f0f0f0;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .contact-form {
+            background-color: #2a2a2a;
+        }
+        
+        .contact-form h3 {
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            background-color: var(--cream);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .dark-mode .form-group input,
+        .dark-mode .form-group select,
+        .dark-mode .form-group textarea {
+            background-color: #333;
+            border-color: #444;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(248, 163, 2, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #f0f0f0;
+            padding: 70px 0 30px;
+        }
+        
+        .dark-mode footer {
+            background-color: #111;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-img {
+            height: 100px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+        
+        .footer-brand span {
+            color: var(--gold);
+        }
+        
+        .footer-brand p {
+            color: #ccc;
+            margin-top: 10px;
+        }
+        
+        .footer-links h4, .footer-hours h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #f0f0f0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3.2rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.6rem;
+            }
+            
+            .locations-grid {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--cream);
+                flex-direction: column;
+                padding: 25px 0;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            .dark-mode nav ul {
+                background-color: #1a1a1a;
+            }
+            
+            nav ul.active {
+                display: flex;
+                animation: fadeIn 0.4s ease;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .fab-theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+            
+            .service-img-container {
+                height: 200px;
+            }
+            
+            .gallery-item {
+                height: 280px;
+            }
+            
+            .swiper {
+                height: 450px;
+            }
+            
+            .swiper-slide {
+                padding: 35px 30px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2.4rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+            }
+            
+            .logo-img {
+                height: 55px;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .swiper {
+                height: 480px;
+            }
+            
+            .contact-container {
+                gap: 40px;
+            }
+            
+            .fab-theme-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.3rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.9rem;
+            }
+            
+            .service-content h3 {
+                font-size: 1.6rem;
+            }
+            
+            .location-content {
+                padding: 25px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <!-- Logo for light theme -->
+                <a href="#home" class="logo-link">
+                    <img src="logo-light.png" alt="Touch of Gold Logo" class="logo-img logo-light">
+                    <!-- Logo for dark theme -->
+                    <img src="logo-dark.png" alt="Touch of Gold Logo" class="logo-img logo-dark">
+                </a>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Floating Theme Toggle -->
+    <button class="fab-theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Luxury Self-Care Lounge</h2>
+            <h3><i>By Mhacdan Salon & Spa</i></h3>
+            <p>Indulge in premium hair, nails, massage, and lash services at our elegant salon & spa. Your journey to relaxation and beauty begins here.</p>
+            <a href="#contact" class="btn">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title" id="servicesTitle">
+                <h2>Our Premium Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="gallery/hair-services.jpg" alt="Hair Services" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>Hair Services</h3>
+                        <p>From cuts and coloring to styling and treatments, our expert stylists create the perfect look for you with premium products.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Nail Care" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>Nail Care</h3>
+                        <p>Manicures, pedicures, nail art, and extensions in a relaxing environment with the latest techniques and premium products.</p>
+                    </div>
+                </div>
+                
+              <!--  <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Therapeutic Massage" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>Therapeutic Massage</h3>
+                        <p>Relax and rejuvenate with our professional massage therapies tailored to your needs. Swedish, deep tissue, and aromatherapy available.</p>
+                    </div>
+                </div> -->
+                
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="gallery/lash-services.jpg" alt="Lash Services" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>Lash Services</h3>
+                        <p>Enhance your natural beauty with our eyelash extensions, lifts, and tinting services performed by certified lash artists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title" id="galleryTitle">
+                <h2>Our Work Gallery</h2>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="gallery/hair-1.jpg" alt="Hair Styling" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Hair Styling</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery/nail-1.jpg" alt="Nail Art" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Nail Art Design</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery/massage-1.jpg" alt="Massage Therapy" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Massage Therapy</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery/lash-1.jpg" alt="Lash Extensions" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Lash Extensions</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery/hair-color-1.jpg" alt="Hair Color" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Hair Coloring</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery/spa-1.jpg" alt="Spa Treatment" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Spa Treatment</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title" id="testimonialsTitle">
+                <h2>Client Testimonials</h2>
+            </div>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-content">
+                            I've been coming to Touch of Gold for over a year now, and I'm always impressed with their services. The lash extensions I get here last longer than anywhere else. Highly recommended!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Santos" class="author-img">
+                            <div class="author-info">
+                                <h4>Maria Santos</h4>
+                                <p>Regular Client for 1 year</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-content">
+                            The massage therapists here are truly exceptional. I've tried many spas, but Touch of Gold has the most skilled therapists who know exactly how to relieve tension. The ambiance is also very relaxing.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="John Dela Cruz" class="author-img">
+                            <div class="author-info">
+                                <h4>John Dela Cruz</h4>
+                                <p>Massage Therapy Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-content">
+                            I got my hair colored and styled for my wedding at Touch of Gold, and I couldn't be happier! The color was perfect and stayed vibrant for weeks. The staff made me feel like a princess!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Andrea Reyes" class="author-img">
+                            <div class="author-info">
+                                <h4>Andrea Reyes</h4>
+                                <p>Bride & Regular Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-content">
+                            The nail technicians are true artists! I always get compliments on my nails whenever I come here. The salon is clean, and the service is always excellent. Worth every peso!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophia Lim" class="author-img">
+                            <div class="author-info">
+                                <h4>Sophia Lim</h4>
+                                <p>Nail Art Enthusiast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="section-title" id="locationsTitle">
+                <h2>Our Locations</h2>
+            </div>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d964.2831022985218!2d120.9058426696173!3d14.817824995610938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad300e542e4b%3A0x84c16a5972858784!2s367%20Manor%2C%20Balagtas%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1766637504678!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="location-content">
+                        <h3>Balagtas Branch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Mac Arthur Highway Wawa, Balagtas, Bulacan, Philippines</p>
+                        <p><i class="fas fa-clock"></i> Open: 9:00 AM - 8:00 PM (Mon-Sun)</p>
+                        <p><i class="fas fa-phone"></i> 0954 992 0442</p>
+                        <p><i class="fas fa-parking"></i> Ample parking available</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.7673969642633!2d120.93186317583846!3d14.78212757260512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b2826aef955f%3A0x6d9a39b953ba4a18!2s24%20Manila%20N%20Rd%2C%20Bocaue%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1766637707119!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="location-content">
+                        <h3>Bocaue Branch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Mac Arthur Highway Lolomboy, Bocaue, Bulacan, Philippines</p>
+                        <p><i class="fas fa-clock"></i> Open: 10:00 AM - 9:00 PM (Mon-Sun)</p>
+                        <p><i class="fas fa-phone"></i> 0954 992 0442</p>
+                        <p><i class="fas fa-wifi"></i> Free WiFi for clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title" id="contactTitle">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Book an appointment or inquire about our services. We're here to help you look and feel your best.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>0954 992 0442</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>touchofgold2025@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Locations</h4>
+                            <p>Balagtas & Bocaue, Bulacan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Mon-Sun: 9AM-8PM (Balagtas)<br>Mon-Sun: 10AM-9PM (Bocaue)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Book an Appointment</h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="hair">Hair Services</option>
+                                <option value="nails">Nail Care</option>
+                             <!--   <option value="massage">Therapeutic Massage</option> -->
+                                <option value="lashes">Lash Services</option>
+                                <option value="package">Full Package</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Select Branch</option>
+                                <option value="balagtas">Balagtas Branch</option>
+                                <option value="bocaue">Bocaue Branch</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <!-- Logo for light theme in footer -->
+                    <img src="logo-dark.png" alt="Touch of Gold Logo" class="footer-logo-img logo-light">
+                    <!-- Logo for dark theme in footer -->
+                    <img src="logo-dark.png" alt="Touch of Gold Logo" class="footer-logo-img logo-dark">
+                   <!-- <h3>TOUCH OF <span>GOLD</span></h3> -->
+                    <p><i>SELF CARE LOUNGE BY MHACDAN SALON & SPA</i></p>
+                    <p>Providing premium beauty and wellness services in Bulacan since 2025.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h4>Business Hours</h4>
+                    <p><strong>Balagtas Branch:</strong><br>9:00 AM - 8:00 PM (Mon-Sun)</p>
+                    <p><strong>Bocaue Branch:</strong><br>10:00 AM - 9:00 PM (Mon-Sun)</p>
+                    <p>We accept walk-ins and appointments.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Touch of Gold - Self Care Lounge by Mhacdan Salon & Spa. All rights reserved.</p>
+                <p>Mac Arthur Highway Wawa, Balagtas, Bulacan & Mac Arthur Highway Lolomboy, Bocaue, Bulacan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Theme Toggle (FAB)
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme or prefer-color-scheme
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Scroll animation for section titles, cards, and gallery items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements
+        document.querySelectorAll('.service-card, .location-card, .gallery-item, .section-title').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Initialize Swiper for testimonials
+        const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                }
+            },
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 20,
+                slideShadows: false,
+            },
+        });
+        
+        // Form submission
+        const appointmentForm = document.getElementById('appointmentForm');
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking request! We will contact you shortly to confirm your appointment.');
+            appointmentForm.reset();
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
